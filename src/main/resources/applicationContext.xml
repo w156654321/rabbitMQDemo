@@ -39,6 +39,7 @@
         exclusive 仅创建者可以使用的私有队列，断开后自动删除
         auto-delete 当所有消费端连接断开后，是否自动删除队列 -->
     <rabbit:queue id="test_queue" name="#{appConfig['mq.queue']}_testQueue" durable="true" auto-delete="false" exclusive="false" />
+    <rabbit:queue id="liudhQueue" name="liudhQueue" durable="true" auto-delete="false" exclusive="false" />
 
     <!-- 交换机定义 -->
     <!--
@@ -52,6 +53,7 @@
         <rabbit:bindings>
             <!-- 设置消息Queue匹配的pattern (direct模式为key) -->
             <rabbit:binding queue="test_queue" pattern="#{appConfig['mq.queue']}_patt"/>
+            <rabbit:binding queue="liudhQueue" pattern="liudh_patt"/>
         </rabbit:bindings>
     </rabbit:topic-exchange>
 
